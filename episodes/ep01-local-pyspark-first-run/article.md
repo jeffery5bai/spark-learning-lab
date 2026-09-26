@@ -217,10 +217,10 @@ task
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
 
 Apache Spark 3.4.4 — Configuration：\
-[https://spark.apache.org/docs/3.4.4/configuration.html](https://spark.apache.org/docs/3.4.4/configuration.html)
+[https://archive.apache.org/dist/spark/docs/3.4.4/configuration.html](https://archive.apache.org/dist/spark/docs/3.4.4/configuration.html)
 
 PySpark 3.4.4 — SparkSession API：\
-[https://spark.apache.org/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html](https://spark.apache.org/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html)
+[https://archive.apache.org/dist/spark/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html](https://archive.apache.org/dist/spark/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.html)
 
 Py4J Documentation：\
 [https://www.py4j.org/](https://www.py4j.org/)
