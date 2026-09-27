@@ -6,9 +6,9 @@
 
 ## 讀完這篇後你會更了解......
 
-- 操作 DataFrame 的 **transformation**、**action** 與 **lazy execution**。
-- 透過 `explain(mode="extended")`，讀懂 logical plan 與 physical plan 個別在回答什麼問題。
-- 觀察 Catalyst Optimizer 如何整理 transformation；並瞭解 DAG Scheduler 與 Task Scheduler 對於執行 action 的責任和角色。
+- 一段 PySpark 程式從 transformation、action 到 task 執行的大致路徑。
+- 透過 `explain(mode="extended")`，理解 logical plan、physical plan，以及 Catalyst 如何整理 transformation。
+- 為什麼 Spark 要採用 lazy execution，以及 action、DAG Scheduler、Task Scheduler 各自扮演什麼角色。
 
 ## 先從整體看：一段 PySpark 程式怎麼跑？
 
