@@ -174,16 +174,10 @@ local[2]
 下一篇，我想把今天的 process、thread 與 partition 先放在一邊，回到另一個根本問題：Spark 明明知道我接下來要做很多 transformation，它是怎麼把這串操作組成 DAG，又為什麼不立刻執行？
 
 ---
-## 完整程式碼與參考資料
+## 完整程式碼
 
 🚀 GitHub：\
 [Ep04｜資料在哪裡、程式在哪裡跑：從 local mode 畫出資料平台地圖](https://github.com/jeffery5bai/spark-learning-lab/tree/main/episodes/ep04-local-mode-platform-map)
 
 🚀 spark-learning-lab 系列文章與實作：\
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
-
-Apache Spark 3.4.4 — Cluster Mode Overview：\
-[https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html](https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html)
-
-PySpark 3.4.4 — `udf` API：\
-[https://archive.apache.org/dist/spark/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.functions.udf.html](https://archive.apache.org/dist/spark/docs/3.4.4/api/python/reference/pyspark.sql/api/pyspark.sql.functions.udf.html)
