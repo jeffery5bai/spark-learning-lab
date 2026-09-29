@@ -55,7 +55,7 @@ regional_revenue.show()
 | `spark.master` | `local[2]` | 使用本機模式，最多兩個 task thread 可同時執行。 |
 | `spark.sql.shuffle.partitions` | `4` | shuffle 後規劃使用的 partition 數。 |
 
-![Spark Environment 介面](screenshots/environment-config.png)
+![Spark Environment 介面](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep03-local-spark-ui/screenshots/environment-config.png)
 
 ## 一次 `show()`，為什麼有兩個 Job？
 
@@ -77,7 +77,7 @@ Job 0 的 Stage 0 有兩個 task，代表這次來源資料有兩個 partition�
 
 Job 1 裡的 `skipped` 也不是失敗。前一段 shuffle 結果已經存在，Spark 不必重新讀取、過濾與寫出資料，而是直接重用它。`AQEShuffleRead` 中的 AQE 是 Adaptive Query Execution；此刻我先把它理解成 Spark 會參考實際 shuffle 結果，調整後續執行。AQE 的細節之後再深入。
 
-![Job 1 重用先前 shuffle 結果，並透過 AQEShuffleRead 完成後續運算](screenshots/job-1-aqe-shuffle-read.png)
+![Job 1 重用先前 shuffle 結果，並透過 AQEShuffleRead 完成後續運算](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep03-local-spark-ui/screenshots/job-1-aqe-shuffle-read.png)
 
 *Job 1 中灰色的 skipped Stage 不會重跑；Stage 2 則透過 `AQEShuffleRead` 接續前段 shuffle 結果。*
 
@@ -91,13 +91,13 @@ Job 1 裡的 `skipped` 也不是失敗。前一段 shuffle 結果已經存在，
 
 Event Timeline 用時間軸顯示 executor 的增減與各 Stage 的開始、結束時間。這次資料很小，只有一條短短的 Stage；但在真正的慢 job 中，它能幫我先定位哪個 stage 特別久、是否反覆重試，或 executor 是否在中途離開。
 
-![Event Timeline](screenshots/job-event-timeline.png)
+![Event Timeline](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep03-local-spark-ui/screenshots/job-event-timeline.png)
 
 ### DAG Visualization：資料如何流動、在哪裡被切開？
 
 DAG Visualization 讓我看見 transformation 串成的資料流，以及 Stage 的邊界。我的圖中，`parallelize`、`mapPartitions`、`map`、`WholeStageCodegen` 都還在同一個 Stage 裡；到了 `Exchange`，資料必須重新分配，才會形成 shuffle 邊界。
 
-![DAG Visualization](screenshots/job-dag-visualization.png)
+![DAG Visualization](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep03-local-spark-ui/screenshots/job-dag-visualization.png)
 
 圖中的方塊不會精準對應某一行 Python API，但它們是很有用的效能線索：
 
@@ -116,7 +116,7 @@ DAG Visualization 讓我看見 transformation 串成的資料流，以及 Stage 
 
 Completed Stages 是把執行結果濃縮成表格。這次 Stage 0 的 `Tasks: 2/2` 表示兩個 task 都成功完成；`Shuffle Write: 377 B` 則是最直接的證據，說明它把中間結果寫給後續 Stage 使用。
 
-![Completed Stage](screenshots/completed-stage-metrics.png)
+![Completed Stage](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep03-local-spark-ui/screenshots/completed-stage-metrics.png)
 
 未來看到 job 變慢時，我可以沿著這條路往下找：
 
