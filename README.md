@@ -19,6 +19,7 @@
 | Ep04 | local mode 的 Driver、JVM、task thread 與 Python worker | [文章](episodes/ep04-local-mode-platform-map/article.md) | [程式](episodes/ep04-local-mode-platform-map/experiment/local_topology.py) |
 | Ep05 | Narrow、Wide 與 Shuffle 如何切出 Stage | [文章](episodes/ep05-dag-lazy-execution/article.md) | [程式](episodes/ep05-dag-lazy-execution/experiment/dag_lineage.py) |
 | Ep06 | Partition 如何決定 Task 數與平行度 | [文章](episodes/ep06-partition-parallelism/article.md) | [程式](episodes/ep06-partition-parallelism/experiment/partition_parallelism.py) |
+| Ep07 | 同一段 DataFrame pipeline，Task 數為什麼會變？從 Shuffle 到 AQE | [文章](episodes/ep07-shuffle-aqe/article.md) | [程式](episodes/ep07-shuffle-aqe/experiment/shuffle_and_aqe.py) |
 
 
 ## 開始前需要什麼？
