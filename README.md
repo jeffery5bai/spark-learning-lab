@@ -9,7 +9,11 @@
 
 ## 這個 lab 想達成什麼？
 
-每一集圍繞一個 Spark 問題，保留文章、可重跑實驗與必要的觀察證據；下方目錄記錄目前已完成的內容。
+每一集圍繞一個 Spark 問題，保留文章、可重跑實驗與必要的觀察證據。課程依資料與程式實際走過的路徑分段；目錄記錄目前已完成的內容。
+
+### 第一段：在 local mode 建立 Spark 的執行現場（Ep01–Ep04）
+
+從一段能在筆電執行的 PySpark 程式開始，依序看見 lazy execution、Spark UI 與 local mode 的程序拓樸，先建立可觀察、可驗證的本機執行模型。
 
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
@@ -17,11 +21,22 @@
 | Ep02 | transformation、action 與 lazy execution | [文章](episodes/ep02-local-mode-program-lifecycle/article.md) | [程式](episodes/ep02-local-mode-program-lifecycle/experiment/lifecycle.py) |
 | Ep03 | 第一次打開 Spark UI | [文章](episodes/ep03-local-spark-ui/article.md) | [程式](episodes/ep03-local-spark-ui/experiment/spark_ui.py) |
 | Ep04 | local mode 的 Driver、JVM、task thread 與 Python worker | [文章](episodes/ep04-local-mode-platform-map/article.md) | [程式](episodes/ep04-local-mode-platform-map/experiment/local_topology.py) |
+
+### 第二段：從資料流到平行度與結果重用（Ep05–Ep09）
+
+沿著 DataFrame lineage，理解 transformation、shuffle 與 partition 如何改變工作；最後再回答同一份結果被多個 action 使用時，Spark 是否重新計算，以及何時該 materialize 或切斷 lineage。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
 | Ep05 | Narrow、Wide 與 Shuffle 如何切出 Stage | [文章](episodes/ep05-dag-lazy-execution/article.md) | [程式](episodes/ep05-dag-lazy-execution/experiment/dag_lineage.py) |
 | Ep06 | Partition 如何決定 Task 數與平行度 | [文章](episodes/ep06-partition-parallelism/article.md) | [程式](episodes/ep06-partition-parallelism/experiment/partition_parallelism.py) |
 | Ep07 | 同一段 DataFrame pipeline，Task 數為什麼會變？從 Shuffle 到 AQE | [文章](episodes/ep07-shuffle-aqe/article.md) | [程式](episodes/ep07-shuffle-aqe/experiment/shuffle_and_aqe.py) |
 | Ep08 | 資料寫出前怎麼安排 partition？repartition、coalesce、partitionBy | [文章](episodes/ep08-output-partitions/article.md) | [程式](episodes/ep08-output-partitions/experiment/output_partitions.py) |
+| Ep09 | 同一份 DataFrame 為什麼又跑一次？Cache、persist 與 checkpoint | [文章](episodes/ep09-cache-checkpoint/article.md) | [程式](episodes/ep09-cache-checkpoint/experiment/cache_checkpoint.py) |
 
+### 第三段：從檔案到資料表：格式、讀取與資料湖（Ep10–Ep12）
+
+接著會先區分檔案格式、catalog／metastore 與 table format：從 CSV、JSON、Parquet 的讀寫差異，走到 Hive Table 與 Iceberg 如何管理資料檔，最後回到下游讀取時的 column pruning、predicate pushdown 與 partition pruning。
 
 ## 開始前需要什麼？
 
