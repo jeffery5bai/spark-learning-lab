@@ -215,7 +215,7 @@ Physical Plan 裡可以找到：
 
 實驗前一步的 `.show()` action 在 Spark UI 也留下相同線索；紅框中的 scan 名稱保留了 catalog、namespace、table name 與檔案格式：
 
-![Spark UI 顯示 managed table 會執行 Scan parquet spark_catalog.analytics.managed_events](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/ep10-catalog-hive-tables/episodes/ep10-catalog-hive-tables/screenshots/managed-table-scan-parquet-in-spark-ui.png)
+![Spark UI 顯示 managed table 會執行 Scan parquet spark_catalog.analytics.managed_events](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep10-catalog-hive-tables/screenshots/managed-table-scan-parquet-in-spark-ui.png)
 
 這段輸出把路徑接起來了：`spark_catalog.analytics.managed_events` 這個名稱，透過 catalog metadata 找到 warehouse 裡的 location，最後由 `FileScan parquet` 讀取實體檔案。
 
