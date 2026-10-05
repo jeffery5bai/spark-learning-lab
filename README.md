@@ -38,12 +38,12 @@
 
 從 `spark.table("analytics.orders")` 這個日常入口往下追。先用 Hive 生態系畫出查詢提交、query engine、catalog／metastore、warehouse 與 data files 的全貌；接著深入 Hive-style table 的 metadata 管理，再看 Iceberg 如何改變 table metadata 與版本管理，最後走到 Parquet、ORC、CSV、JSON 等實體資料檔。
 
-| 集數 | 主題 | 會回答什麼問題？ |
-| --- | --- | --- |
-| Ep10 | 一張表從名字到檔案：Spark 資料儲存全貌 | 一次查表會經過哪些元件？名稱、metadata 與實體檔案如何連起來？ |
-| Ep11 | Hive Metastore、warehouse 與 Hive-style table：metadata 到底管理了什麼？ | managed/external table、location 與 metadata backend 各自負責什麼？ |
-| Ep12 | Iceberg 為什麼重新定義一張表？ | table format 如何用 metadata tree、snapshot 與 commit 管理資料檔？ |
-| Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | 檔案格式如何影響 schema、儲存與讀取？ |
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep10 | 一張表從名字到檔案：Spark 資料儲存全貌 | [文章](episodes/ep10-catalog-hive-tables/article.md) | [程式](episodes/ep10-catalog-hive-tables/experiment/catalog_hive_tables.py) |
+| Ep11 | Hive Metastore、warehouse 與 Hive-style table：metadata 到底管理了什麼？ | — | — |
+| Ep12 | Iceberg 為什麼重新定義一張表？ | — | — |
+| Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | — | — |
 
 ### 第四段：讀取策略與效能排查（Ep14 起，依實驗調整）
 

@@ -38,14 +38,7 @@ Storage：HDFS、S3、GCS、本機檔案系統 ...
 Data files：Parquet、ORC、CSV、JSON ...
 ```
 
-*這張圖的箭頭代表「下一步需要取得的資訊」，不代表每個元件都一定是獨立服務。*local mode 的 PySpark 直接經由 Py4J 呼叫同一個 application 裡的 Spark JVM；通常是在 BI tool 連遠端 Trino 或 HiveServer2 時，JDBC、ODBC 或 HTTP 才常會成為 client 與 query engine 的連線方式。
-
-我用餐廳做一個簡單比喻：
-- DataFrame API 或 SQL 是點餐內容，
-- Py4J 或 JDBC 像把訂單送進廚房的方式，
-- query engine 是安排廚房工作的角色。
-- catalog 像食材索引，告訴廚房 `analytics.orders` 對應哪一份 table metadata；
-- storage 才是實際放食材的倉庫。
+**這張圖的箭頭代表「下一步需要取得的資訊」，不代表每個元件都一定是獨立服務。** local mode 的 PySpark 直接經由 Py4J 呼叫同一個 application 裡的 Spark JVM；通常是在 BI tool 連遠端 Trino 或 HiveServer2 時，JDBC、ODBC 或 HTTP 才常會成為 client 與 query engine 的連線方式。
 
 | 名詞 | 這條路徑中的責任 |
 | --- | --- |
@@ -56,7 +49,13 @@ Data files：Parquet、ORC、CSV、JSON ...
 | warehouse | 受管理 table 預設使用的 storage 根路徑 convention。 |
 | data files | 真正保存 rows 的檔案，例如 Parquet、ORC、CSV、JSON。 |
 
-> *一張表的名稱、描述這張表的 metadata、以及保存 rows 的檔案，是三種不同的東西。*
+我用餐廳做一個簡單比喻：
+
+- DataFrame API 或 SQL 是點餐內容。
+- Py4J 或 JDBC 像把訂單送進廚房的方式。
+- query engine 是安排廚房工作的角色。
+- catalog 像食材索引，告訴廚房 `analytics.orders` 對應哪一份 table metadata。
+- storage 才是實際放食材的倉庫。
 
 ## 這次實驗選了哪些元件？
 
