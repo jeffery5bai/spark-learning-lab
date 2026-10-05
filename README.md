@@ -34,9 +34,24 @@
 | Ep08 | 資料寫出前怎麼安排 partition？repartition、coalesce、partitionBy | [文章](episodes/ep08-output-partitions/article.md) | [程式](episodes/ep08-output-partitions/experiment/output_partitions.py) |
 | Ep09 | 同一份 DataFrame 為什麼又跑一次？Cache、persist 與 checkpoint | [文章](episodes/ep09-cache-checkpoint/article.md) | [程式](episodes/ep09-cache-checkpoint/experiment/cache_checkpoint.py) |
 
-### 第三段：從檔案到資料表：格式、讀取與資料湖（Ep10–Ep12）
+### 第三段：從一張表走到資料檔：Catalog、Table Format 與資料格式（Ep10–Ep13）
 
-接著會先區分檔案格式、catalog／metastore 與 table format：從 CSV、JSON、Parquet 的讀寫差異，走到 Hive Table 與 Iceberg 如何管理資料檔，最後回到下游讀取時的 column pruning、predicate pushdown 與 partition pruning。
+從 `spark.table("analytics.orders")` 這個日常入口往下追。先用 Hive 生態系畫出查詢提交、query engine、catalog／metastore、warehouse 與 data files 的全貌；接著深入 Hive-style table 的 metadata 管理，再看 Iceberg 如何改變 table metadata 與版本管理，最後走到 Parquet、ORC、CSV、JSON 等實體資料檔。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep10 | 一張表從名字到檔案：Spark 資料儲存全貌 | [文章](episodes/ep10-catalog-hive-tables/article.md) | [程式](episodes/ep10-catalog-hive-tables/experiment/catalog_hive_tables.py) |
+| Ep11 | Hive Metastore、warehouse 與 Hive-style table：metadata 到底管理了什麼？ | — | — |
+| Ep12 | Iceberg 為什麼重新定義一張表？ | — | — |
+| Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | — | — |
+
+### 第四段：讀取策略與效能排查（Ep14 起，依實驗調整）
+
+前一段已經看過 table metadata 與 data files；接著回到一次實際查詢，理解 Spark 如何減少不必要的讀取，再逐步處理 join、skew 與整體效能問題。
+
+| 集數 | 主題 | 會回答什麼問題？ |
+| --- | --- | --- |
+| Ep14 | 同一份表，Spark 為什麼能少讀那麼多資料？ | column pruning、predicate pushdown 與 partition pruning 分別跳過什麼？ |
 
 ## 開始前需要什麼？
 
