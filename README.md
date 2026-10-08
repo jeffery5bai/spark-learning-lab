@@ -43,7 +43,7 @@
 | Ep10 | 一張表從名字到檔案：Spark 資料儲存全貌 | [文章](episodes/ep10-catalog-hive-tables/article.md) | [程式](episodes/ep10-catalog-hive-tables/experiment/catalog_hive_tables.py) |
 | Ep11 | Hive Metastore、warehouse 與 Hive-style table：metadata 到底管理了什麼？ | [文章](episodes/ep11-hive-metastore-warehouse/article.md) | [程式](episodes/ep11-hive-metastore-warehouse/experiment/hive_metastore_warehouse.py) |
 | Ep12 | Iceberg 為什麼重新定義一張表？從 Hive-style table 到 modern table format | [文章](episodes/ep12-iceberg-table-format/article.md) | [程式](episodes/ep12-iceberg-table-format/experiment/iceberg_table_format.py) |
-| Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | — | — |
+| Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | [文章](episodes/ep13-data-file-formats/article.md) | [程式](episodes/ep13-data-file-formats/experiment/data_file_formats.py) |
 
 ### 第四段：讀取策略與效能排查（Ep14 起，依實驗調整）
 
