@@ -219,11 +219,11 @@ file for 2026-10-03: amount min=100, max=149   → 仍可能符合
 
 關閉時，scan stage 讀取 `15.9 KiB`：
 
-![Parquet filter pushdown disabled，Spark UI scan stage Input 為 15.9 KiB](screenshots/filter-pushdown-disabled.png)
+![Parquet filter pushdown disabled，Spark UI scan stage Input 為 15.9 KiB](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep14-read-strategies/screenshots/filter-pushdown-disabled.png)
 
 開啟後，scan stage 讀取 `11.4 KiB`：
 
-![Parquet filter pushdown enabled，Spark UI scan stage Input 為 11.4 KiB](screenshots/filter-pushdown-enabled.png)
+![Parquet filter pushdown enabled，Spark UI scan stage Input 為 11.4 KiB](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep14-read-strategies/screenshots/filter-pushdown-enabled.png)
 
 | Parquet filter pushdown | matching rows | Scan stage Input |
 | --- | ---: | ---: |
