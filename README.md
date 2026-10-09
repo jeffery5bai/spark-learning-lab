@@ -34,9 +34,9 @@
 | Ep08 | 資料寫出前怎麼安排 partition？repartition、coalesce、partitionBy | [文章](episodes/ep08-output-partitions/article.md) | [程式](episodes/ep08-output-partitions/experiment/output_partitions.py) |
 | Ep09 | 同一份 DataFrame 為什麼又跑一次？Cache、persist 與 checkpoint | [文章](episodes/ep09-cache-checkpoint/article.md) | [程式](episodes/ep09-cache-checkpoint/experiment/cache_checkpoint.py) |
 
-### 第三段：從一張表走到資料檔：Catalog、Table Format 與資料格式（Ep10–Ep13）
+### 第三段：從一張表走到資料檔：Catalog、Table Format 與資料格式（Ep10–Ep14）
 
-從 `spark.table("analytics.orders")` 這個日常入口往下追。先用 Hive 生態系畫出查詢提交、query engine、catalog／metastore、warehouse 與 data files 的全貌；接著深入 Hive-style table 的 metadata 管理，再看 Iceberg 如何用 metadata tree、snapshot、schema evolution 與 partition evolution 管理資料表，最後走到 Parquet、ORC、CSV、JSON 等實體資料檔。
+從 `spark.table("analytics.orders")` 這個日常入口往下追。先用 Hive 生態系畫出查詢提交、query engine、catalog／metastore、warehouse 與 data files 的全貌；接著深入 Hive-style table 的 metadata 管理，再看 Iceberg 如何用 metadata tree、snapshot、schema evolution 與 partition evolution 管理資料表，最後走到 Parquet、ORC、CSV、JSON 等實體資料檔，以及 Spark 如何透過 table layout 與 file metadata 減少讀取。
 
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
@@ -44,14 +44,9 @@
 | Ep11 | Hive Metastore、warehouse 與 Hive-style table：metadata 到底管理了什麼？ | [文章](episodes/ep11-hive-metastore-warehouse/article.md) | [程式](episodes/ep11-hive-metastore-warehouse/experiment/hive_metastore_warehouse.py) |
 | Ep12 | Iceberg 為什麼重新定義一張表？從 Hive-style table 到 modern table format | [文章](episodes/ep12-iceberg-table-format/article.md) | [程式](episodes/ep12-iceberg-table-format/experiment/iceberg_table_format.py) |
 | Ep13 | Parquet、ORC、CSV、JSON：資料檔格式怎麼影響 Spark？ | [文章](episodes/ep13-data-file-formats/article.md) | [程式](episodes/ep13-data-file-formats/experiment/data_file_formats.py) |
+| Ep14 | 同一份表，Spark 為什麼能少讀那麼多資料？ | [文章](episodes/ep14-read-strategies/article.md) | [程式](episodes/ep14-read-strategies/experiment/read_strategies.py) |
 
-### 第四段：讀取策略與效能排查（Ep14 起，依實驗調整）
-
-前一段已經看過 table metadata 與 data files；接著回到一次實際查詢，理解 Spark 如何減少不必要的讀取，再逐步處理 join、skew 與整體效能問題。
-
-| 集數 | 主題 | 會回答什麼問題？ |
-| --- | --- | --- |
-| Ep14 | 同一份表，Spark 為什麼能少讀那麼多資料？ | column pruning、predicate pushdown 與 partition pruning 分別跳過什麼？ |
+### 第四段：離開 local mode，建立 Standalone Cluster 心智模型（暫定 Ep15–Ep18）
 
 ## 開始前需要什麼？
 
