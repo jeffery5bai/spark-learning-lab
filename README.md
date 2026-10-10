@@ -48,6 +48,12 @@
 
 ### 第四段：離開 local mode，建立 Standalone Cluster 心智模型（暫定 Ep15–Ep18）
 
+從最小的 Spark Standalone cluster 出發，將 local mode 中重疊的角色拆開觀察：先確認 Master、Worker、Driver 與 Executor 的位置和責任，再逐步追 task、資料與容錯行為。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep15 | 我的第一個 Spark cluster：Master、Worker、Driver、Executor 分別在哪裡？ | [文章](episodes/ep15-standalone-cluster/article.md) | [實驗說明](episodes/ep15-standalone-cluster/experiment/README.md) |
+
 ## 開始前需要什麼？
 
 目前的本機環境已用下面這組版本驗證過：
