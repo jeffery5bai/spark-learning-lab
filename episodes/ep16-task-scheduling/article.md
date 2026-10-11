@@ -153,8 +153,8 @@ Stage 有很多 tasks 時，先不要直接推論它們會同時執行。先在 
 🚀 spark-learning-lab 系列文章與實作：\
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
 
-Apache Spark 3.4.4 — Cluster Mode Overview：\
-[https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html](https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html)
+Apache Spark 3.4.4 — Submitting Applications：\
+[https://archive.apache.org/dist/spark/docs/3.4.4/submitting-applications.html](https://archive.apache.org/dist/spark/docs/3.4.4/submitting-applications.html)
 
 Apache Spark 3.4.4 — Monitoring and Instrumentation：\
 [https://archive.apache.org/dist/spark/docs/3.4.4/monitoring.html](https://archive.apache.org/dist/spark/docs/3.4.4/monitoring.html)
