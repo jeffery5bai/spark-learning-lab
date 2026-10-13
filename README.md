@@ -55,6 +55,7 @@
 | Ep15 | 我的第一個 Spark cluster：Master、Worker、Driver、Executor 分別在哪裡？ | [文章](episodes/ep15-standalone-cluster/article.md) | [實驗說明](episodes/ep15-standalone-cluster/experiment/README.md) |
 | Ep16 | 同一個 Spark job 進 cluster 後，task 如何被送到 Executor？ | [文章](episodes/ep16-task-scheduling/article.md) | [實驗說明](episodes/ep16-task-scheduling/experiment/README.md) |
 | Ep17 | 資料、shuffle、cache 到底落在哪裡？ | [文章](episodes/ep17-data-shuffle-cache-location/article.md) | [實驗說明](episodes/ep17-data-shuffle-cache-location/experiment/README.md) |
+| Ep18 | Executor 消失時，Spark 怎麼繼續跑？從 task retry 看 application 的恢復路徑 | [文章](episodes/ep18-executor-failure-recovery/article.md) | [實驗說明](episodes/ep18-executor-failure-recovery/experiment/README.md) |
 
 ## 開始前需要什麼？
 
