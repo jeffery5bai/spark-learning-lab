@@ -63,7 +63,7 @@
 
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
-| Ep19 | 同一個 Spark application，放到 YARN 或 Kubernetes 後誰替它找資源？ | [文章](episodes/ep19-cluster-manager-map/article.md) | 概念總覽 |
+| Ep19 | 同一個 Spark application，放到 YARN 或 Kubernetes 後誰替它找資源？ | [文章](episodes/ep19-cluster-manager-map/article.md) | - |
 
 ## 開始前需要什麼？
 

@@ -140,9 +140,6 @@ Ep15 已經建立過 deploy mode 最關鍵的判讀方式：找 Driver 的 proce
 🚀 spark-learning-lab 系列文章與實作：\
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
 
-Apache Spark 3.4.4 — Cluster Mode Overview：\
-[https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html](https://archive.apache.org/dist/spark/docs/3.4.4/cluster-overview.html)
-
 Apache Hadoop — YARN：\
 [https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
