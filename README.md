@@ -57,6 +57,14 @@
 | Ep17 | 資料、shuffle、cache 到底落在哪裡？ | [文章](episodes/ep17-data-shuffle-cache-location/article.md) | [實驗說明](episodes/ep17-data-shuffle-cache-location/experiment/README.md) |
 | Ep18 | Executor 消失時，Spark 怎麼繼續跑？從 task retry 看 application 的恢復路徑 | [文章](episodes/ep18-executor-failure-recovery/article.md) | [實驗說明](episodes/ep18-executor-failure-recovery/experiment/README.md) |
 
+### 第五段：Spark 跑在不同平台上（暫定 Ep19–Ep21）
+
+從 Standalone cluster 已建立的角色與資源地圖出發，理解同一個 Spark application 在 YARN 與 Kubernetes 上如何取得、配置與觀察資源。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep19 | 同一個 Spark application，放到 YARN 或 Kubernetes 後誰替它找資源？ | [文章](episodes/ep19-cluster-manager-map/article.md) | - |
+
 ## 開始前需要什麼？
 
 目前的本機環境已用下面這組版本驗證過：
