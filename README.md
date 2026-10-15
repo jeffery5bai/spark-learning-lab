@@ -64,6 +64,7 @@
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
 | Ep19 | 同一個 Spark application，放到 YARN 或 Kubernetes 後誰替它找資源？ | [文章](episodes/ep19-cluster-manager-map/article.md) | - |
+| Ep20 | Spark application 跑在 YARN 時，ResourceManager、ApplicationMaster、NodeManager 各自做什麼？ | [文章](episodes/ep20-spark-on-yarn/article.md) | - |
 
 ## 開始前需要什麼？
 
