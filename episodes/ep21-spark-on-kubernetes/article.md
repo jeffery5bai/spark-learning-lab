@@ -198,17 +198,17 @@ Spark 放到 Kubernetes 後，Job、Stage、task、shuffle 與 Executor 的核�
 
 ## 完整程式碼與參考資料
 
-🚀 GitHub：\\
+🚀 GitHub：\
 [Ep21｜Spark application 跑在 Kubernetes 時，Driver Pod、Executor Pod 與 scheduler 怎麼合作？](https://github.com/jeffery5bai/spark-learning-lab/tree/main/episodes/ep21-spark-on-kubernetes)
 
-🚀 spark-learning-lab 系列文章與實作：\\
+🚀 spark-learning-lab 系列文章與實作：\
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
 
-Apache Spark 3.4.4 — Running Spark on Kubernetes：\\
+Apache Spark 3.4.4 — Running Spark on Kubernetes：\
 [https://archive.apache.org/dist/spark/docs/3.4.4/running-on-kubernetes.html](https://archive.apache.org/dist/spark/docs/3.4.4/running-on-kubernetes.html)
 
-Kubernetes Documentation — Components：\\
+Kubernetes Documentation — Components：\
 [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/)
 
-Kubernetes Documentation — Pods：\\
+Kubernetes Documentation — Pods：\
 [https://kubernetes.io/docs/concepts/workloads/pods/](https://kubernetes.io/docs/concepts/workloads/pods/)
