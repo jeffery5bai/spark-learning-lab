@@ -67,6 +67,14 @@
 | Ep20 | Spark application 跑在 YARN 時，ResourceManager、ApplicationMaster、NodeManager 各自做什麼？ | [文章](episodes/ep20-spark-on-yarn/article.md) | - |
 | Ep21 | Spark application 跑在 Kubernetes 時，Driver Pod、Executor Pod 與 scheduler 怎麼合作？ | [文章](episodes/ep21-spark-on-kubernetes/article.md) | - |
 
+### 第六段：實務診斷與效能排查（暫定 Ep22–Ep27）
+
+從 Spark UI 與 platform evidence 開始，將慢 job 或失敗 job 依序拆成資料讀取、partition、shuffle、task 分布與 Executor 資源問題，再以最小調整驗證假設。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep22 | Spark job 變慢時，第一眼該看哪裡？從 Spark UI 建立診斷順序 | [文章](episodes/ep22-spark-ui-diagnosis/article.md) | [實驗說明](episodes/ep22-spark-ui-diagnosis/experiment/README.md) |
+
 ## 開始前需要什麼？
 
 目前的本機環境已用下面這組版本驗證過：
