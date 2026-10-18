@@ -74,6 +74,7 @@
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
 | Ep22 | Spark job 變慢時，第一眼該看哪裡？從 Spark UI 建立診斷順序 | [文章](episodes/ep22-spark-ui-diagnosis/article.md) | [實驗說明](episodes/ep22-spark-ui-diagnosis/experiment/README.md) |
+| Ep23 | 為什麼只有一個 task 特別慢？從 data skew 看懂 Stage 為何卡住 | [文章](episodes/ep23-data-skew/article.md) | [實驗說明](episodes/ep23-data-skew/experiment/README.md) |
 
 ## 開始前需要什麼？
 
