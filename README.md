@@ -77,6 +77,7 @@
 | Ep23 | 為什麼只有一個 task 特別慢？從 data skew 看懂 Stage 為何卡住 | [文章](episodes/ep23-data-skew/article.md) | [實驗說明](episodes/ep23-data-skew/experiment/README.md) |
 | Ep24 | join 為什麼常是效能分水嶺？從 BroadcastHashJoin 到 SortMergeJoin 看資料怎麼移動 | [文章](episodes/ep24-join-strategies/article.md) | [實驗說明](episodes/ep24-join-strategies/experiment/README.md) |
 | Ep25 | 小檔案為什麼讓 Spark 忙著啟 task？從 scan partitions 看 file layout 的成本 | [文章](episodes/ep25-small-files/article.md) | [實驗說明](episodes/ep25-small-files/experiment/README.md) |
+| Ep26 | Executor 記憶體吃緊時，Spark 怎麼把資料 spill 到磁碟？從 Stage metrics 看 memory、disk 與 GC | [文章](episodes/ep26-memory-spill/article.md) | [實驗說明](episodes/ep26-memory-spill/experiment/README.md) |
 
 ## 開始前需要什麼？
 
