@@ -67,7 +67,7 @@
 | Ep20 | Spark application 跑在 YARN 時，ResourceManager、ApplicationMaster、NodeManager 各自做什麼？ | [文章](episodes/ep20-spark-on-yarn/article.md) | - |
 | Ep21 | Spark application 跑在 Kubernetes 時，Driver Pod、Executor Pod 與 scheduler 怎麼合作？ | [文章](episodes/ep21-spark-on-kubernetes/article.md) | - |
 
-### 第六段：實務診斷與效能排查（暫定 Ep22–Ep27）
+### 第六段：實務診斷與效能排查（Ep22–Ep26）
 
 從 Spark UI 與 platform evidence 開始，將慢 job 或失敗 job 依序拆成資料讀取、partition、shuffle、task 分布與 Executor 資源問題，再以最小調整驗證假設。
 
@@ -78,6 +78,14 @@
 | Ep24 | join 為什麼常是效能分水嶺？從 BroadcastHashJoin 到 SortMergeJoin 看資料怎麼移動 | [文章](episodes/ep24-join-strategies/article.md) | [實驗說明](episodes/ep24-join-strategies/experiment/README.md) |
 | Ep25 | 小檔案為什麼讓 Spark 忙著啟 task？從 scan partitions 看 file layout 的成本 | [文章](episodes/ep25-small-files/article.md) | [實驗說明](episodes/ep25-small-files/experiment/README.md) |
 | Ep26 | Executor 記憶體吃緊時，Spark 怎麼把資料 spill 到磁碟？從 Stage metrics 看 memory、disk 與 GC | [文章](episodes/ep26-memory-spill/article.md) | [實驗說明](episodes/ep26-memory-spill/experiment/README.md) |
+
+### 第七段：用設定解決效能問題（Ep27–Ep30）
+
+前一段先從 Spark UI、plan 與 logs 找出慢 job 的原因；這一段再回到特定設定，理解它們改變的執行行為、適用時機與取捨。每一集都以可觀察的症狀出發，避免把設定當成脫離 workload 的萬用答案。
+
+| 集數 | 主題 | 文章 | 實驗 |
+| --- | --- | --- | --- |
+| Ep27 | shuffle 的工作切太多、切太少怎麼辦？讓 AQE 幫忙收尾 | [文章](episodes/ep27-aqe-shuffle-partitions/article.md) | [實驗說明](episodes/ep27-aqe-shuffle-partitions/experiment/README.md) |
 
 ## 開始前需要什麼？
 
