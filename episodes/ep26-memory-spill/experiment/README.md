@@ -47,26 +47,6 @@ Executor heap 已經耗盡；真實 OOM 還要看 Executor lost、container／pr
 2. `submit_spill_observer.sh`：提交 client-mode application。主要程式位於 `spill_observer.py`；
    action 完成後會保留 420 秒供 UI 觀察。
 
-## 觀察清單
-
-action 完成並進入 420 秒等待後，依序收集：
-
-1. **submitter log**：保留 records、shuffle partitions、executor memory、force spill threshold 與
-   Driver UI URL；這些是解讀本次 spill 的實驗條件。
-2. **Driver UI → Jobs → Job details**：截 DAG 與 Completed Stages。辨識 map-side Shuffle Write、
-   reduce-side Shuffle Read，以及各 Stage 的 task 數。
-3. **Driver UI → map-side Stage details**：展開 Summary Metrics 或點擊 `Show Additional Metrics`，截
-   Memory Bytes Spilled、Disk Bytes Spilled、Shuffle Write、GC Time 與 Tasks table。
-4. **Driver UI → reduce-side Stage details**：截 Shuffle Read、Memory／Disk Spill、GC Time 與
-   Event Timeline 或 Tasks table。這個實驗的 spill 預期集中在 map-side；reduce-side 的零 spill
-   也是有用的對照，說明它主要在讀取已經寫好的 shuffle blocks，而非再次發生同一種 sorter spill。
-5. **Driver UI → Executors**：截 Completed Tasks、Task Time (GC Time)、Shuffle Read／Write；如有
-   additional metrics，也保留 memory／disk spill。它是 application 彙總背景，必須回到 Stage／task
-   指標判讀。
-
-截圖時保留 application 名稱、Stage description 與欄位名稱。最重要的是 map-side 與 reduce-side
-兩張 Stage details，讓文章能比較 spill 發生在哪個資料路徑。
-
 ## 收集證據後怎麼判讀
 
 | 證據 | 這次可以確認什麼 | 還不能直接下的結論 |

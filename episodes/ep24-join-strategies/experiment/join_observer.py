@@ -25,8 +25,7 @@ def run_phase(dataframe: DataFrame, phase_name: str) -> None:
     sc.setJobDescription(None)
     print(f"Completed {phase_name}: joined row count={row_count}", flush=True)
     print(
-        f"Keep the Driver UI open for {OBSERVATION_SECONDS} seconds. "
-        f"Capture the completed {phase_name} Job, SQL plan, and Stage metrics now.",
+        f"Keeping the application alive for {OBSERVATION_SECONDS} seconds.",
         flush=True,
     )
     time.sleep(OBSERVATION_SECONDS)

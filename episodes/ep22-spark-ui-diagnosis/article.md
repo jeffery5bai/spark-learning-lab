@@ -78,7 +78,7 @@ action 完成後，程式會刻意等待 420 秒，讓 completed Job 仍留在 D
 
 ![Jobs 頁先列出本次 collect 的 duration、stage 數與 task 數](https://raw.githubusercontent.com/jeffery5bai/spark-learning-lab/main/episodes/ep22-spark-ui-diagnosis/screenshots/jobs-overview.png)
 
-頁面上方的 Total Uptime 為 4.6 分鐘，和 4 秒的 collect duration 差距很大。這個差距主要來自我為截圖保留的 420 秒等待，沒有代表 Spark 計算花了四分多鐘。真實排查也需要先確認：我看到的是 application 生命週期、排隊時間，還是特定 action 的 execution time？
+頁面上方的 Total Uptime 為 4.6 分鐘，和 4 秒的 collect duration 差距很大。實驗程式在 action 完成後仍保持 application 存活 420 秒，因此 uptime 包含等待時間，並不代表 Spark 計算花了四分多鐘。真實排查也需要先確認：我看到的是 application 生命週期、排隊時間，還是特定 action 的 execution time？
 
 Jobs 頁提供入口；接下來點進 Job 1，才能知道這四秒落在什麼工作上。
 

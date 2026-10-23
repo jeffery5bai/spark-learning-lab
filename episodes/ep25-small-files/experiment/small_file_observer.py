@@ -25,8 +25,7 @@ def run_phase(path: str, phase_name: str) -> None:
     sc.setJobDescription(None)
     print(f"Completed {phase_name}: value_sum={value_sum}", flush=True)
     print(
-        f"Keep the Driver UI open for {OBSERVATION_SECONDS} seconds. "
-        f"Capture the completed {phase_name} Job and its scan Stage now.",
+        f"Keeping the application alive for {OBSERVATION_SECONDS} seconds.",
         flush=True,
     )
     time.sleep(OBSERVATION_SECONDS)
