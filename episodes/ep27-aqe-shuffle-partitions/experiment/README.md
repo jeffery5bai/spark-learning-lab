@@ -58,21 +58,6 @@ skew join 留給需要 sort-merge join 的專屬情境。
 2. `submit_aqe_partition_observer.sh`：提交 application。三個 phase 完成後，Driver 會停留 420 秒，
    讓 completed Jobs、SQL plan 與 Stage metrics 保留在 UI 中。
 
-## 觀察清單
-
-三個 phase 全部完成後再開始截圖，不需要在 phase 間停下：
-
-1. **submitter log**：保留 records、source partitions、initial shuffle partitions、advisory partition
-   size，以及每個 phase 的 AQE／coalescing 設定與 result partitions。
-2. **Jobs 頁**：保留三個 phase 的 Job description、Stage 數與 task 數。先確認每個 action 對應哪一組設定。
-3. **Phase 1 Job details**：截 Job DAG 與 Completed Stages，記錄初始 32 partitions 對應的下游 task 數。
-4. **Phase 2 Job details**：截同樣資訊，確認單獨開啟 AQE、但關閉 coalescing 時不應把 partitions 合併。
-5. **submitter log + Phase 3 Job details**：從 submitter log 截 final plan 中的
-   `AQEShuffleRead`／`coalesced` 訊號，並從 Job details 截 Completed Stages。記錄下游實際 task 數和
-   Phase 1、2 的差異。
-6. **Phase 3 downstream Stage details**：截 task timeline、Shuffle Read 與 task duration；它用來確認合併後
-   的 tasks 仍能在兩個 Executors、四個 task slots 上正常分批執行。
-
 ## 預期與限制
 
 - Phase 1、2 的下游 task 數應維持初始 partition 數附近；Phase 3 應較少。實際合併後的 task 數由

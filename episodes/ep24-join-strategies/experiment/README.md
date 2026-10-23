@@ -47,32 +47,6 @@ product_id、event value                 product_id、segment
 2. `submit_join_observer.sh`：提交 client-mode application。主要程式位於
    `join_observer.py`；它依序執行 broadcast phase、等待、shuffle phase、再等待。
 
-## 觀察清單
-
-### Broadcast phase 完成後的第一次 420 秒等待
-
-1. **submitter log 的 formatted plan**：找 `BroadcastHashJoin` 與 `BroadcastExchange`。確認小的
-   dimension side 被 broadcast；不要只從 job duration 判斷策略。
-2. **Driver UI → SQL / DataFrame**：開啟這次 execution，截能同時看到 `BroadcastHashJoin`、
-   `BroadcastExchange` 與 join 條件 `product_id` 的 physical plan。
-3. **Driver UI → Jobs → Job details**：截 DAG 與 Completed Stages。找 broadcast exchange，以及
-   `count()` 最後彙總造成的 Stage；記錄 fact-side join 前是否有為 `product_id` 建立的 Exchange。
-4. **Driver UI → Stages**：截主 join Stage 的 Summary Metrics 或 Tasks table，保留 task 數和
-   Input／Shuffle Read／Shuffle Write 欄位。
-
-### Shuffle phase 完成後的第二次 420 秒等待
-
-1. **submitter log 的 formatted plan**：找 `SortMergeJoin`，並找 join 左右兩側各自的
-   `Exchange hashpartitioning(product_id, 8)` 與 `Sort`。
-2. **Driver UI → SQL / DataFrame**：截相同範圍的 physical plan，和 broadcast phase 對照。
-3. **Driver UI → Jobs → Job details**：截 DAG 與 Completed Stages。找 join 前的 Exchanges，並
-   比較相關 Stages 的 Shuffle Read／Write。
-4. **Driver UI → Stage details**：截 shuffle read 的 Tasks table 或 Event Timeline。這次 key
-   均勻分布，不預期有 Ep23 那種單一 straggler。
-
-截圖時保留 application 名稱、phase description、operator 名稱與關鍵 metrics。最重要的是兩張
-physical plan，以及兩個 Job DAG／Completed Stages 的對照。
-
 ## 收集證據後怎麼判讀
 
 | 證據 | 這次可以先確認什麼 | 還不能直接下的結論 |

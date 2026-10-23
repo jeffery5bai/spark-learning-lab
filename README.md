@@ -86,6 +86,7 @@
 | 集數 | 主題 | 文章 | 實驗 |
 | --- | --- | --- | --- |
 | Ep27 | shuffle 的工作切太多、切太少怎麼辦？讓 AQE 幫忙收尾 | [文章](episodes/ep27-aqe-shuffle-partitions/article.md) | [實驗說明](episodes/ep27-aqe-shuffle-partitions/experiment/README.md) |
+| Ep28 | 只剩一個 task 還在跑，要不要多派一個幫手？聊聊 Spark speculation | [文章](episodes/ep28-speculation/article.md) | [程式](episodes/ep28-speculation/experiment/speculation_observer.py) |
 
 ## 開始前需要什麼？
 

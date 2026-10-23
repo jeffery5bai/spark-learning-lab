@@ -49,17 +49,7 @@ block 遺失後的 recomputation、memory spill 或 rack-level failure。
 4. `restore_worker_1.sh`：application 完成觀察後，恢復 Worker 1，讓後續課程回到兩個
    Workers 的基準環境。
 
-`failure_observer.py` 是 application 本體；每個初始 task attempt 會暫停 240 秒，提供足夠時間
-截取 running stage。Worker 1 消失後的 retry 只暫停 15 秒，讓恢復結果能較快落到 Worker 2。
+`failure_observer.py` 是 application 本體；每個初始 task attempt 會暫停 240 秒。
+Worker 1 消失後的 retry 只暫停 15 秒，讓恢復結果能較快落到 Worker 2。
 
-## 觀察順序
-
-1. 啟動 application，確認兩個 Executors 都已取得 task。
-2. 截 Master UI 與 Driver UI 的 running stage，確認兩個 Executors 已取得四個 tasks。
-3. 停止 Worker 1。
-4. 在 Driver UI 觀察 task attempt、stage 狀態與 Event Timeline。
-5. 截 Master UI 與剩餘 Worker UI，確認可用資源和 Executor 數量變化。
-6. 等待重試完成，截 completed stage 的 task table 與 logs。
-
-只有 application 處於 running stage 時才停止 Worker。完成觀察後必須恢復 Worker，讓後續課程保有
-兩個 Workers 的基準環境。
+只有 application 處於 running stage 時才停止 Worker。完成實驗後必須恢復 Worker。

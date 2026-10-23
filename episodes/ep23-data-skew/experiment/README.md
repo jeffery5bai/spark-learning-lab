@@ -45,27 +45,6 @@ partition planning 等額外變因混入這次比較。
 2. `submit_skew_observer.sh`：提交 client-mode application。實驗邏輯位於
    `skew_observer.py`；它依序執行 baseline、等待、skew、再等待。
 
-## 觀察清單
-
-### Baseline 完成後的第一次 420 秒等待
-
-1. **Driver UI → Jobs**：找到描述為 `baseline: redistribute by uniform_key` 的 completed Job，記錄它的 Stage 數與 duration。
-2. **Driver UI → post-shuffle Stage details**：截 Event Timeline 與 Tasks table。保留
-   Duration、Shuffle Read Size、Records 欄位，確認八個 tasks 的資料量與時間相近。
-3. **Driver UI → Executors**：截兩個 Executors 的 task 數與基本指標，作為資源分布背景。
-
-### Skew 完成後的第二次 420 秒等待
-
-1. **Driver UI → Jobs**：找到描述為 `skew: redistribute by skew_key` 的 completed Job。
-2. **Driver UI → post-shuffle Stage details**：截 Event Timeline 與 Tasks table。依
-   Duration、Shuffle Read Size 或 Records 排序，保留能看到一個 task 仍在執行、其他 task 已
-   完成的畫面。
-3. **Driver UI → Executors**：截 Executors 頁，確認哪個 Executor 執行了較多工作；再回到
-   task table 對照，避免只用 Executor 彙總數字推論原因。
-
-截圖時保留頁面標題、application 名稱、Stage description 與欄位名稱。最重要的對照是同一套
-資源下，baseline 與 skew 的 post-shuffle Tasks table／timeline。
-
 ## 收集證據後的判讀範圍
 
 若 skew phase 出現單一 task 同時有較多 records、較大的 shuffle read 與較長 duration，這次

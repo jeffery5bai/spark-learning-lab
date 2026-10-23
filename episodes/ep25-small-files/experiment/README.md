@@ -45,29 +45,6 @@ Stage；判讀時要將它和主要的 Parquet scan Stage 分開，避免把尾�
 2. `submit_small_file_observer.sh`：提交 client-mode application。主要程式位於
    `small_file_observer.py`；它依序讀取 large-files、等待、讀取 small-files、再等待。
 
-## 觀察清單
-
-### Large-files phase 完成後的第一次 420 秒等待
-
-1. **submitter log**：記錄 `files discovered` 與 `planned scan partitions`；預期都是接近 8。
-2. **Driver UI → Jobs → Job details**：截 DAG 與 Completed Stages，找包含 `Scan parquet` 的 Stage，
-   並將它與最後的 aggregate Stage 分開看。
-3. **Driver UI → scan Stage details**：截 Event Timeline 與 Tasks table，保留 task 數、Duration、
-   Input Size／Records 與 scheduler delay。預期只有少數 tasks。
-
-### Small-files phase 完成後的第二次 420 秒等待
-
-1. **submitter log**：記錄 160 個 files 與規劃出的 scan partitions；在這個觀察設定下預期接近 160。
-2. **Driver UI → Jobs → Job details**：截相同範圍的 DAG 與 Completed Stages，比較 scan Stage 的
-   task 數與 Input。
-3. **Driver UI → scan Stage details**：截 Event Timeline 與 Tasks table。保留多個短 task 分批進入
-   四個 task slots 的畫面；Tasks table 可依 Duration 或 Launch Time 排序。
-4. **Driver UI → Executors**：截 task 數與 task time。它是 application 累積值，只用來辨識 task
-   數變化；小檔案問題仍要以 scan Stage 的 file count、task count 和短 task 形狀為主。
-
-截圖時保留 application 名稱、phase description、Stage description 和欄位名稱。最重要的對照是
-兩個 scan Stage 的 task 數，以及 small-files Event Timeline 中大量短 task 的分批排程。
-
 ## 收集證據後怎麼判讀
 
 | 證據 | 這次可以確認什麼 | 還不能直接下的結論 |

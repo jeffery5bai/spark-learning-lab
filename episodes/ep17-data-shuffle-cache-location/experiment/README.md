@@ -58,25 +58,3 @@ input scan 使用 Spark 預設的 file partition planning。小型 input files �
 Worker-managed 的 `/tmp/spark-.../executor-.../blockmgr-.../` 是本次 Standalone Worker
 為 Executor 建立的 temporary directory；其中的 `shuffle_*` 檔案確認中間資料留在
 Executor 所在的 Worker local disk，不在 Master 或共享 input volume。
-
-## 觀察清單
-
-### Phase 1：第一次 `count()` 完成後
-
-- Master UI：兩個 Executors 共用 4 cores、2 GiB。
-- Driver UI 的 Jobs / Stages：確認 scan 上游 stage 與 `repartition(8, "key")` 形成的
-  shuffle 邊界；Stage 詳情應有 Shuffle Read / Write metrics。
-- Driver UI 的 Storage：同一個 cached RDD 有八個 partitions，blocks 分布在兩個
-  Executors 的 memory。
-- 兩個 Worker UI：各有一個 Executor。
-- `inspect_worker_local_storage.sh` 的輸出：兩個 Worker-managed local directory 中的
-  `shuffle_*` 檔案。
-
-### Phase 2：第二次 action 完成後
-
-- Driver UI 的 Jobs / Stages：出現新的 Job；比較其 DAG 與第一個 materialization Job，
-  確認它從 cached blocks 開始，沒有重新執行 upstream scan 和 shuffle。
-- Storage：cached RDD 與 blocks 仍存在，直到程式最後呼叫 `unpersist()`。
-
-程式結束後 Executor 退出、local shuffle files 被清理、cache blocks 也被釋放。因此所有
-截圖與 local-file 觀察都要在對應的 300 秒暫停期間完成。

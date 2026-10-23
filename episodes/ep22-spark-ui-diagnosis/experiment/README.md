@@ -43,23 +43,6 @@ completed Job、Stages、task timeline、Executor metrics
 3. `submit_diagnosis_observer.sh`：提交 client-mode application。application 邏輯位於
    `diagnosis_observer.py`，在 `collect()` 完成後保留 420 秒供 UI 觀察。
 
-## 觀察清單
-
-application 完成 action 並進入 420 秒等待後，依序收集：
-
-1. **Master UI**：`Alive Workers` 為 2，application 使用兩個 Executors、4 cores、2 GiB
-   memory。這是資源配置的背景，不用它判斷 Spark task 的計算瓶頸。
-2. **Driver UI → Jobs**：截一張完整 Job 與 DAG。先記錄 duration，並辨識 scan 與 shuffle
-   對應的 stages。
-3. **Driver UI → Stages**：分別開啟 scan stage 與包含 `repartition` 的 stage，截 Summary
-   Metrics。記錄 Input、Shuffle Read、Shuffle Write 與 task 數。
-4. **Driver UI → Stage details**：在 post-shuffle stage 截 Tasks table 或 Event Timeline，記錄
-   task duration 是否平均、是否出現明顯落後 task。這次不預期出現 skew；它是後續比較基準。
-5. **Driver UI → Executors**：截每個 Executor 的 task 數、Input、Shuffle Read／Write、GC time、
-   memory／disk spill。這次不預期 spill；零或很低的數值就是基準的一部分。
-
-截圖時保留頁面標題、application 名稱與關鍵數字，避免只截局部表格而失去判讀上下文。
-
 ## 收集證據後怎麼判讀
 
 | UI 證據 | 現階段能先問的問題 | 深入驗證的課程 |
