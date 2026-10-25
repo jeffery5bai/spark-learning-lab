@@ -1,4 +1,4 @@
-# Ep30｜小檔案很多，怎麼讓 Spark 少跑幾趟？
+# Ep30｜小檔案很多，怎麼讓 Spark 少跑幾趟？聊聊 Spark 的讀檔分工
 
 Ep25 看過小檔案帶來的麻煩：資料總量不大，Spark 卻忙著啟動一堆短 task。如果這些檔案暫時不能重寫，有沒有辦法讓一個 task 多讀幾個，少付一點啟動與排程成本？
 
@@ -197,7 +197,7 @@ events.explain(mode="formatted")
 ## 完整程式碼與參考資料
 
 🚀 GitHub：\
-[Ep30｜小檔案很多，怎麼讓 Spark 少跑幾趟？](https://github.com/jeffery5bai/spark-learning-lab/tree/main/episodes/ep30-file-scan-packing)
+[Ep30｜小檔案很多，怎麼讓 Spark 少跑幾趟？聊聊 Spark 的讀檔分工](https://github.com/jeffery5bai/spark-learning-lab/tree/main/episodes/ep30-file-scan-packing)
 
 🚀 spark-learning-lab 系列文章與實作：\
 [https://github.com/jeffery5bai/spark-learning-lab](https://github.com/jeffery5bai/spark-learning-lab)
