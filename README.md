@@ -88,6 +88,7 @@
 | Ep27 | shuffle 的工作切太多、切太少怎麼辦？讓 AQE 幫忙收尾 | [文章](episodes/ep27-aqe-shuffle-partitions/article.md) | [實驗說明](episodes/ep27-aqe-shuffle-partitions/experiment/README.md) |
 | Ep28 | 只剩一個 task 還在跑，要不要多派一個幫手？聊聊 Spark speculation | [文章](episodes/ep28-speculation/article.md) | [程式](episodes/ep28-speculation/experiment/speculation_observer.py) |
 | Ep29 | 小表要多小，才值得送到每個 Executor？聊聊 Spark broadcast | [文章](episodes/ep29-broadcast-tuning/article.md) | [程式](episodes/ep29-broadcast-tuning/experiment/broadcast_tuning_observer.py) |
+| Ep30 | 小檔案很多，怎麼讓 Spark 少跑幾趟？ | [文章](episodes/ep30-file-scan-packing/article.md) | [程式](episodes/ep30-file-scan-packing/experiment/file_scan_packing_observer.py) |
 
 ## 開始前需要什麼？
 
